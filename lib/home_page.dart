@@ -12,9 +12,8 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   List<String> shows = const [
     "Search",
-    "Edit",
     "Add",
-    "Show All",
+    "Favorite",
     "Settings",
   ];
   @override
@@ -59,19 +58,15 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.edit),
-            label: 'Edit',
-          ),
-          BottomNavigationBarItem(
               icon: Icon(
                 Icons.add_circle_outline_rounded,
               ),
               label: 'Add'),
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.lock_open_outlined,
+                Icons.favorite,
               ),
-              label: 'Open'),
+              label: 'Favorites'),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.settings,
@@ -92,63 +87,90 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget sideDrawer() {
     return Drawer(
-      child: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            DrawerHeader(
-              padding: const EdgeInsets.all(0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  CircleAvatar(
-                    child: Image.asset(
-                      'assets/images/$kLogo',
-                      width: 120,
-                      height: 120,
-                    ),
-                    radius: 60,
-                    backgroundColor: Colors.lightBlueAccent,
+      child: Column(
+        children: <Widget>[
+          DrawerHeader(
+            padding: const EdgeInsets.all(0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                CircleAvatar(
+                  child: Image.asset(
+                    'assets/images/$kLogo',
+                    width: 120,
+                    height: 120,
                   ),
-                  const Center(child: Text('UserName'))
+                  radius: 60,
+                  backgroundColor: Colors.lightBlueAccent,
+                ),
+                const Center(child: Text('UserName'))
+              ],
+            ),
+            decoration: const BoxDecoration(
+              color: Colors.lightBlueAccent,
+            ),
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              controller: ScrollController(),
+              child: Column(
+                children: [
+                  ListTile(
+                    leading: const Icon(Icons.image),
+                    title: const Text('Edit Image'),
+                    onTap: () {},
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.account_circle_rounded),
+                    title: const Text('Edit Username'),
+                    onTap: () {},
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.home),
+                    title: const Text('Home Page'),
+                    onTap: () => closeDrawer(0),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.add_circle_outline_rounded),
+                    title: const Text('Add New Account'),
+                    onTap: () => closeDrawer(1),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.favorite),
+                    title: const Text('Favorite Accounts'),
+                    onTap: () => closeDrawer(2),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.settings),
+                    title: const Text('Sittings'),
+                    onTap: () => closeDrawer(3),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.logout),
+                    title: const Text('LogOut'),
+                    onTap: () => {},
+                  ),
+                  ListTile(
+                    subtitle: const Text(
+                      "Warning",
+                      style: TextStyle(color: Colors.red, fontSize: 12),
+                    ),
+                    leading: const Icon(
+                      Icons.delete_forever,
+                      color: Colors.red,
+                    ),
+                    title: const Text(
+                      'Delete Account',
+                      style: TextStyle(color: Colors.red),
+                    ),
+                    onTap: () {},
+                  ),
                 ],
               ),
-              decoration: const BoxDecoration(
-                color: Colors.lightBlueAccent,
-              ),
             ),
-            ListTile(
-              leading: const Icon(Icons.home),
-              title: const Text('Home Page'),
-              onTap: () => closeDrawer(0),
-            ),
-            ListTile(
-              leading: const Icon(Icons.edit),
-              title: const Text('Edit Account'),
-              onTap: () => closeDrawer(1),
-            ),
-            ListTile(
-              leading: const Icon(Icons.add_circle_outline_rounded),
-              title: const Text('Add New Account'),
-              onTap: () => closeDrawer(2),
-            ),
-            ListTile(
-              leading: const Icon(Icons.lock_open_outlined),
-              title: const Text('Open The Safe'),
-              onTap: () => closeDrawer(3),
-            ),
-            ListTile(
-              leading: const Icon(Icons.settings),
-              title: const Text('Sittings'),
-              onTap: () => closeDrawer(4),
-            ),
-            ListTile(
-              leading: const Icon(Icons.logout),
-              title: const Text('LogOut'),
-              onTap: () => {},
-            )
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
