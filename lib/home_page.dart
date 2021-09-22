@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text("Password Manager"),
       ),
       body: SafeArea(
-        child: Center(child: kScreens[shows[_selectedIndex]]),
+        child: kScreens[shows[_selectedIndex]]!,
       ),
       bottomNavigationBar: BottomNavigationBar(
         showUnselectedLabels: true,
