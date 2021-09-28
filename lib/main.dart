@@ -1,26 +1,17 @@
+import 'package:backend/screens/authentication.dart';
 import 'package:flutter/material.dart';
-import 'home_page.dart';
 
+// The entry point for my application:
+// where we first ask the user to login to access his account
+// and to register a new account for the case of new users.
 void main() {
+  //TODO:Convert the curly brackets into =>
+  print("We are inside the main function");
   runApp(
-    const PasswordManager(),
-  );
-}
-
-class PasswordManager extends StatelessWidget {
-  const PasswordManager({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Password Manager',
-      theme: ThemeData(
-        primaryColor: Colors.blue,
-        fontFamily: 'Walter Turncoat',
-      ),
+    const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(),
-    );
-  }
+      title: "Launch Point for authentication phase",
+      home: Authentication(),
+    ),
+  );
 }

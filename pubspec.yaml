@@ -1,4 +1,4 @@
-name: untitled
+name: backend
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -35,6 +35,12 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_slidable:
+  animated_text_kit: ^4.2.1
+  shared_preferences:
+  fluttertoast: ^8.0.8
+  sqflite:
+  encrypt: ^5.0.1
+  crypto: ^3.0.1
 
 dev_dependencies:
   flutter_test:
@@ -62,7 +68,6 @@ flutter:
   assets:
     - assets/images/
 
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
@@ -74,22 +79,17 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: Kalam
-      fonts:
-        - asset: assets/fonts/Kalam-Regular.ttf
-        - asset: assets/fonts/Kalam-Light.ttf
-        - asset: assets/fonts/Kalam-Bold.ttf
-    - family: Roboto
-      fonts:
-        - asset: assets/fonts/Roboto-Regular.ttf
-        - asset: assets/fonts/Roboto-Light.ttf
-        - asset: assets/fonts/Roboto-Bold.ttf
-    - family: Walter Turncoat
-      fonts:
-        - asset: assets/fonts/WalterTurncoat-Regular.ttf
-
-
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
